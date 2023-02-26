@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/main_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="10">
+
+                        <TextView
+                            android:id="@+id/org_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Organization name"
+                            android:textSize="28sp"
+                            android:fontFamily="@font/spartan_bold"/>
+
+                        <TextView
+                            android:id="@+id/org_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/spartan_semibold"
+                            android:text="Organization type"
+                            android:textColor="@color/dark_gray" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/org_logo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:src="@color/alert_red"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/org_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="This organization's short description"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="17sp"
+                    android:fontFamily="@font/spartan_medium"/>
+
+                <TextView
+                    android:id="@+id/org_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="This is clickable link to orgs website"
+                    android:fontFamily="@font/spartan_medium"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="7dp"
+                    android:fontFamily="@font/spartan_bold"
+                    android:text="Topics this org works on :"
+                    android:textSize="16sp" />
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/topics_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    app:alignContent="stretch"
+                    app:flexWrap="wrap"
+                    app:flexDirection="row"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="7dp"
+                    android:fontFamily="@font/spartan_bold"
+                    android:text="Tech Stack this org uses :"
+                    android:textSize="16sp" />
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/techStack_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    app:alignContent="stretch"
+                    app:flexWrap="wrap"
+                    app:flexDirection="row"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/spartan_bold"
+                android:text="GSOC participation :"
+                android:textSize="16sp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="10dp"
+                android:showDividers="beginning">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/spartan_medium"
+                        android:gravity="center"
+                        android:text="2016"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/spartan_medium"
+                        android:gravity="center"
+                        android:text="2017"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/spartan_medium"
+                        android:gravity="center"
+                        android:text="2018"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/spartan_medium"
+                        android:gravity="center"
+                        android:text="2019"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/spartan_medium"
+                        android:gravity="center"
+                        android:text="2020"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/spartan_medium"
+                        android:gravity="center"
+                        android:text="2021"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/spartan_medium"
+                        android:gravity="center"
+                        android:text="2022"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/spartan_medium"
+                        android:gravity="center"
+                        android:text="2023"
+                        android:textSize="10dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/year_check"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <ImageView
+                        android:id="@+id/came_in_2016"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:src="@drawable/cross_logo"/>
+
+                    <ImageView
+                        android:id="@+id/came_in_2017"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:src="@drawable/cross_logo"/>
+
+                    <ImageView
+                        android:id="@+id/came_in_2018"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:src="@drawable/cross_logo"/>
+
+                    <ImageView
+                        android:id="@+id/came_in_2019"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:src="@drawable/cross_logo"/>
+
+                    <ImageView
+                        android:id="@+id/came_in_2020"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:src="@drawable/cross_logo"/>
+
+                    <ImageView
+                        android:id="@+id/came_in_2021"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:src="@drawable/cross_logo"/>
+
+                    <ImageView
+                        android:id="@+id/came_in_2022"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:src="@drawable/cross_logo"/>
+
+                    <ImageView
+                        android:id="@+id/came_in_2023"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:src="@drawable/cross_logo"/>
+
+                </TableRow>
+
+            </TableLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp">
+
+                <TextView
+                    android:id="@+id/year_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/spartan_bold"
+                    android:text="Select year :"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/year_choose_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/year_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/spartan_medium"
+                    android:gravity="end"
+                    android:text="Project no : "
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/project_index_shower"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/project_index_shower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/spartan_semibold"
+                    android:gravity="end"
+                    android:text="0 / 0"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/left_project"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:src="@drawable/left_arrow"
+                    android:background="@null"
+                    android:layout_marginStart="4dp"/>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="10dp"
+                    android:layout_weight="20"
+                    app:cardUseCompatPadding="true">
+
+                    <TextView
+                        android:id="@+id/no_complete_projects"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:text="No complete projects"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:fontFamily="@font/spartan_medium"/>
+
+                    <LinearLayout
+                        android:id="@+id/project_description_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/project_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:text="Shifting code to Kotlin"
+                            android:fontFamily="@font/spartan_semibold"/>
+
+                        <TextView
+                            android:id="@+id/project_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/spartan_medium"
+                            android:text="@string/test_description"
+                            android:textSize="14sp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"/>
+
+                        <TextView
+                            android:id="@+id/no_tags_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/spartan_medium"
+                            android:text="@string/test_description"
+                            android:textSize="14sp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"/>
+
+                        <TextView
+                            android:id="@+id/project_student"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/spartan_bold"
+                            android:text="Project Completed by : Omkar Sapkal"
+                            android:textSize="13sp"
+                            android:layout_marginBottom="5dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/view_project_button"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:fontFamily="@font/spartan"
+                                android:text="View project"
+                                android:textAllCaps="false" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/view_source_code_button"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="5"
+                                android:fontFamily="@font/spartan"
+                                android:text="View source code"
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <ImageButton
+                    android:id="@+id/right_project"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:src="@drawable/right_arrow"
+                    android:background="@null"
+                    android:layout_marginEnd="4dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:id="@+id/contact_us"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CONTACT INFO"
+                    android:fontFamily="@font/spartan_bold"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>

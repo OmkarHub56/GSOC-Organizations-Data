@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/solid_light_blue_curved_border"
+    android:layout_marginEnd="9dp"
+    android:layout_marginBottom="6dp">
+
+    <TextView
+        android:id="@+id/tech_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Java"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="5dp"
+        android:textSize="10sp"
+        android:fontFamily="@font/spartan_semibold"
+        >
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tech_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textSize="10sp"
+        android:fontFamily="@font/spartan_semibold"
+        android:layout_marginEnd="9dp">
+
+    </TextView>
+
+</LinearLayout>
+
+

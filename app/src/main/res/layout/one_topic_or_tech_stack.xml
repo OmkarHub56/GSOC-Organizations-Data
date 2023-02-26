@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Java"
+    android:background="@drawable/solid_light_blue_curved_border"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:textSize="13sp"
+    android:fontFamily="@font/spartan_semibold"
+    android:layout_marginEnd="9dp"
+    android:layout_marginBottom="6dp">
+
+</TextView>

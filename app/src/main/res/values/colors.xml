@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="red">#EA0909</color>
+    <color name="delete_chat_red">#D11A2A</color>
+    <color name="alert_red">#D54A56</color>
+    <color name="pink">#BF69E4</color>
+    <color name="close_to_black_gray">#303030</color>
+    <color name="my_gray">#505050</color>
+    <color name="ddddark_gray">#757575</color>
+    <color name="dddark_gray">#7B7D7E</color>
+    <color name="ddark_gray">#8E9091</color>
+    <color name="dark_gray">#9FA2A3</color>
+    <color name="gray">#B3B7B8</color>
+    <color name="light_gray">#D7DBDD</color>
+    <color name="llight_gray">#E4E7E9</color>
+    <color name="lllight_gray">#F1F4F6</color>
+    <color name="yellow">#FFF300</color>
+    <color name="llight_yellow">#F3F0B7</color>
+    <color name="lllight_yellow">#F4F2C5</color>
+    <color name="green">#03F809</color>
+    <color name="my_green">#6CD6A4</color>
+    <color name="blue">#5FB1F3</color>
+    <color name="light_blue">#BADEFB</color>
+</resources>

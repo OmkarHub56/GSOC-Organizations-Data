@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/alatsi</item>
+        <item>@font/andika_new_basic</item>
+        <item>@font/andika_new_basic_bold</item>
+        <item>@font/spartan</item>
+        <item>@font/spartan_bold</item>
+        <item>@font/spartan_medium</item>
+        <item>@font/spartan_semibold</item>
+    </array>
+</resources>

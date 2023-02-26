@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/empty_round_corner">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/spartan_semibold"
+            android:text="GSOC participation :"
+            android:textSize="14sp" />
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:fontFamily="@font/spartan_semibold"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Min :"-->
+<!--                android:textSize="11sp" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/min_years"-->
+<!--                android:layout_width="53dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                android:background="@drawable/solid_light_gray_round_corner"-->
+<!--                android:fontFamily="@font/spartan_medium"-->
+<!--                android:gravity="center"-->
+<!--                android:hint="Min"-->
+<!--                android:inputType="number"-->
+<!--                android:paddingStart="2dp"-->
+<!--                android:paddingTop="4dp"-->
+<!--                android:paddingEnd="2dp"-->
+<!--                android:paddingBottom="4dp"-->
+<!--                android:textColorHint="@color/dark_gray"-->
+<!--                android:textSize="11sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:fontFamily="@font/spartan_semibold"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Max :"-->
+<!--                android:textSize="11sp" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/max_years"-->
+<!--                android:layout_width="53dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="15dp"-->
+<!--                android:background="@drawable/solid_light_gray_round_corner"-->
+<!--                android:fontFamily="@font/spartan_medium"-->
+<!--                android:gravity="center"-->
+<!--                android:hint="Max"-->
+<!--                android:inputType="number"-->
+<!--                android:paddingStart="2dp"-->
+<!--                android:paddingTop="4dp"-->
+<!--                android:paddingEnd="2dp"-->
+<!--                android:paddingBottom="4dp"-->
+<!--                android:textColorHint="@color/dark_gray"-->
+<!--                android:textSize="11sp" />-->
+
+<!--        </LinearLayout>-->
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/year_select_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:alignContent="stretch"
+            app:flexWrap="wrap"
+            app:flexDirection="row"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"/>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/spartan_semibold"
+                android:text="Tech Stack : "
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/tech_stack_name_search"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:hint="Enter keyword"
+                android:textColorHint="@color/ddark_gray"
+                android:inputType="textPersonName"
+                android:background="@drawable/solid_light_gray_round_corner"
+                android:fontFamily="@font/spartan_semibold"
+                android:padding="8dp"
+                android:textSize="13sp"
+                android:autofillHints="" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/added_tech_stack_shower"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp">
+
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp">
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/tech_stack_filters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:alignContent="stretch"
+                app:flexWrap="wrap"
+                app:flexDirection="row" />
+
+        </ScrollView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/spartan_semibold"
+            android:text="Total projects completed :"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/spartan_semibold"
+                android:gravity="center"
+                android:text="Min :"
+                android:textSize="11sp" />
+
+            <EditText
+                android:id="@+id/min_total_projects"
+                android:layout_width="53dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/solid_light_gray_round_corner"
+                android:fontFamily="@font/spartan_medium"
+                android:gravity="center"
+                android:hint="Min"
+                android:inputType="number"
+                android:paddingStart="2dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="2dp"
+                android:paddingBottom="4dp"
+                android:textColorHint="@color/dark_gray"
+                android:textSize="11sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/spartan_semibold"
+                android:gravity="center"
+                android:text="Max :"
+                android:textSize="11sp" />
+
+            <EditText
+                android:id="@+id/max_total_projects"
+                android:layout_width="53dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/solid_light_gray_round_corner"
+                android:fontFamily="@font/spartan_medium"
+                android:gravity="center"
+                android:hint="Max"
+                android:inputType="number"
+                android:paddingStart="2dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="2dp"
+                android:paddingBottom="4dp"
+                android:textColorHint="@color/dark_gray"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/spartan_semibold"
+            android:text="Average projects completed :"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/spartan_semibold"
+                android:gravity="center"
+                android:text="Min :"
+                android:textSize="11sp" />
+
+            <EditText
+                android:id="@+id/min_average_projects"
+                android:layout_width="53dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/solid_light_gray_round_corner"
+                android:fontFamily="@font/spartan_medium"
+                android:gravity="center"
+                android:hint="Min"
+                android:inputType="number"
+                android:paddingStart="2dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="2dp"
+                android:paddingBottom="4dp"
+                android:textColorHint="@color/dark_gray"
+                android:textSize="11sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/spartan_semibold"
+                android:gravity="center"
+                android:text="Max :"
+                android:textSize="11sp" />
+
+            <EditText
+                android:id="@+id/max_average_projects"
+                android:layout_width="53dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/solid_light_gray_round_corner"
+                android:fontFamily="@font/spartan_medium"
+                android:gravity="center"
+                android:hint="Max"
+                android:inputType="number"
+                android:paddingStart="2dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="2dp"
+                android:paddingBottom="4dp"
+                android:textColorHint="@color/dark_gray"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="15dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:layout_marginEnd="15dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:fontFamily="@font/spartan_semibold"-->
+<!--            android:text="Min projects completed :"-->
+<!--            android:textSize="14sp" />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="15dp">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:fontFamily="@font/spartan_semibold"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Min :"-->
+<!--                android:textSize="11sp" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/min_min_projects"-->
+<!--                android:layout_width="53dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                android:background="@drawable/solid_light_gray_round_corner"-->
+<!--                android:fontFamily="@font/spartan_medium"-->
+<!--                android:gravity="center"-->
+<!--                android:hint="Min"-->
+<!--                android:inputType="number"-->
+<!--                android:paddingStart="2dp"-->
+<!--                android:paddingTop="4dp"-->
+<!--                android:paddingEnd="2dp"-->
+<!--                android:paddingBottom="4dp"-->
+<!--                android:textColorHint="@color/dark_gray"-->
+<!--                android:textSize="11sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:fontFamily="@font/spartan_semibold"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Max :"-->
+<!--                android:textSize="11sp" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/max_min_projects"-->
+<!--                android:layout_width="53dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="15dp"-->
+<!--                android:background="@drawable/solid_light_gray_round_corner"-->
+<!--                android:fontFamily="@font/spartan_medium"-->
+<!--                android:gravity="center"-->
+<!--                android:hint="Max"-->
+<!--                android:inputType="number"-->
+<!--                android:paddingStart="2dp"-->
+<!--                android:paddingTop="4dp"-->
+<!--                android:paddingEnd="2dp"-->
+<!--                android:paddingBottom="4dp"-->
+<!--                android:textColorHint="@color/dark_gray"-->
+<!--                android:textSize="11sp" />-->
+
+<!--        </LinearLayout>-->
+
+    </LinearLayout>
+
+</ScrollView>
+

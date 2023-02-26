@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GSOC data</string>
+    <string name="test_description">In this projct we shift the whole codebase from java to Kotlin using coroutines and other Kotlin related changes. Below is the name of the student</string>
+</resources>
