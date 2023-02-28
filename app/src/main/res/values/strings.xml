@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">GSOC data</string>
     <string name="test_description">In this projct we shift the whole codebase from java to Kotlin using coroutines and other Kotlin related changes. Below is the name of the student</string>
+    <string name="total_proj_description">Info : Only those organizations will be shown whose total number of projects completed in GSOC lies between min and max. If not set then min=0 and max=500</string>
+    <string name="avg_proj_description">Info : Only those organizations will be shown whose average of projects completed per year in GSOC lies between min and max. If not set then min=0 and max=500</string>
+    <string name="tech_stack_choose">Info : Only those organizations will be shown who use the chosen tech stack. You can choose maximum of 2</string>
+    <string name="year_choose">Info : If switch is OFF, only those organizations will be shown who appeared in GSOC at least in the chosen years. If switch is ON, only those organizations will be shown who only appeared in GSOC in the chosen years and no other years.</string>
 </resources>

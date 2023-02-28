@@ -2,6 +2,8 @@ package com.myapps.gsocdata.activities
 
 import android.app.Dialog
 import android.app.ProgressDialog
+import android.content.res.Configuration
+import android.graphics.drawable.GradientDrawable.Orientation
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -243,7 +245,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     private fun createFilterDialog(){
         filterDialog.setContentView(R.layout.filters_dialog_box)
         val window: Window = filterDialog.window!!
-        window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+//        window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
         val switch=filterDialog.findViewById<SwitchCompat>(R.id.year_select_switch)
         switch.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener {
@@ -447,6 +449,18 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     override fun onDestroy() {
         super.onDestroy()
         filterDialog.dismiss()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+//        if(newConfig.orientation==Configuration.ORIENTATION_LANDSCAPE){
+//            val window: Window = filterDialog.window!!
+//            window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, 200)
+//        }
+//        else{
+//            val window: Window = filterDialog.window!!
+//            window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT)
+//        }
     }
 
 }
