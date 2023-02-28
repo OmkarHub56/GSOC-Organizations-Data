@@ -295,7 +295,7 @@ class OneOrgActivity : AppCompatActivity(),View.OnClickListener {
 
         var alteredDescription : String
         var description=currentSelectedProject!!.projects!!.get(currentProject-1).description
-        binding.noTagsDescription.text=description
+//        binding.noTagsDescription.text=description
 
         if(map.containsKey(currYear+currentProject)){
             alteredDescription= map[currYear+currentProject].toString()

@@ -423,15 +423,15 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"/>
 
-                        <TextView
-                            android:id="@+id/no_tags_description"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/spartan_medium"
-                            android:text="@string/test_description"
-                            android:textSize="14sp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"/>
+<!--                        <TextView-->
+<!--                            android:id="@+id/no_tags_description"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/spartan_medium"-->
+<!--                            android:text="@string/test_description"-->
+<!--                            android:textSize="14sp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:layout_marginBottom="5dp"/>-->
 
                         <TextView
                             android:id="@+id/project_student"

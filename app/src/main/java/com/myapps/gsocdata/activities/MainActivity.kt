@@ -1,6 +1,7 @@
 package com.myapps.gsocdata.activities
 
 import android.app.Dialog
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -30,6 +31,8 @@ import kotlin.collections.HashSet
 class MainActivity : AppCompatActivity(),View.OnClickListener {
     lateinit var binding : ActivityMainBinding
 
+    lateinit var progressDialog : ProgressDialog
+
     lateinit var org_list : RecyclerView
     lateinit var list_adapter : OrgsListAdapter
     lateinit var list_of_org : ArrayList<OneOrg>
@@ -41,7 +44,10 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     lateinit var filterDialog : Dialog
     var lastSelectedTech : TextView?=null
     val listOfSelectedTechStack=ArrayList<TextView>()
-    val listOfSelectedYears=ArrayList<TextView>()
+//    val listOfSelectedYears=ArrayList<TextView>()
+    val isSelected = arrayOf(0,0,0,0,0,0,0,0)
+    var selYearCount=0
+
     val orgsIn2023=HashSet<String>()
 
 
@@ -58,6 +64,11 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
         binding=ActivityMainBinding.inflate(layoutInflater);
         setContentView(binding.root)
+
+        progressDialog= ProgressDialog(this)
+        progressDialog.setTitle("Fetching GSOC info")
+        progressDialog.setCanceledOnTouchOutside(false)
+        progressDialog.show()
 
         filterDialog= Dialog(this)
 
@@ -99,6 +110,8 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
                 filterOrgNames(binding.editTextTextPersonName.text)
                 binding.filterButton.setOnClickListener(this@MainActivity)
 
+                closeProgressDialog()
+
             }
 
             override fun onFailure(call: Call<ArrayList<OneOrg>>, t: Throwable) {
@@ -115,6 +128,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
                     orgsIn2023.add(response.body()!!.organizations?.get(i)!!.name!!)
                 }
                 list_adapter.add2023Orgs(orgsIn2023)
+                closeProgressDialog()
             }
 
             override fun onFailure(call: Call<OrgList2023>, t: Throwable) {
@@ -138,14 +152,29 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
             // checking years in GSOC for org
             var addable=true
-            for(j in listOfSelectedYears.indices){
-                if(listOfSelectedYears[j].text.toString()=="2023"){
-                    addable=addable && orgsIn2023.contains(list_of_org_actual[i].name)
-                }
-                else{
-                    addable=addable && list_of_org_actual[i].years!!.yearsParticipateIn.contains(listOfSelectedYears[j].text.toString())
+            if(selYearCount>0){
+                for(j in isSelected.indices){
+
+                    if(isSelected[j]==1){
+                        if(j==7){
+                            addable=addable && orgsIn2023.contains(list_of_org_actual[i].name.toString())
+                        }
+                        else{
+                            addable=addable && list_of_org_actual[i].years!!.yearsParticipateIn.contains((2016+j).toString())
+                        }
+                    }
+                    else{
+                        if(j==7){
+                            addable=addable && !orgsIn2023.contains(list_of_org_actual[i].name.toString())
+                        }
+                        else{
+                            addable=addable && !list_of_org_actual[i].years!!.yearsParticipateIn.contains((2016+j).toString())
+
+                        }
+                    }
                 }
             }
+
 
             // checking tech stack match
             var addable2=true
@@ -160,7 +189,6 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             //checking average projects match
             val totAvg=list_of_org_actual[i].years!!.avgProjects
             val addable4 = totAvg>=averageProjectsMin && totAvg<=averageProjectsMax
-
 
 
             if(list_of_org_actual[i].name!!.lowercase().contains(input.lowercase())){
@@ -217,109 +245,24 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         val window: Window = filterDialog.window!!
         window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-//        val minYears=filterDialog.findViewById<EditText>(R.id.min_years)
-//        minYears.addTextChangedListener(object : TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                // do nothing
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                if(p0.toString().length<5){
-//                    if(p0.toString().isNotEmpty()){
-//                        minYearsInGsoc=p0.toString().toInt()
-//                    }
-//                    else{
-//                        minYearsInGsoc=0
-//                    }
-//                }
-//                filterOrgNames(binding.editTextTextPersonName.text)
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//                // do nothing
-//            }
-//        })
-//        val maxYears=filterDialog.findViewById<EditText>(R.id.max_years)
-//        maxYears.addTextChangedListener(object : TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                // do nothing
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                if(p0.toString().length<5){
-//                    if(p0.toString().isNotEmpty()){
-//                        maxYearsInGsoc=p0.toString().toInt()
-//                    }
-//                    else{
-//                        maxYearsInGsoc=7
-//                    }
-//                }
-//                filterOrgNames(binding.editTextTextPersonName.text)
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//                // do nothing
-//            }
-//        })
-
         val yearL = arrayOf("2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023")
         var yearSelectOptions=filterDialog.findViewById<FlexboxLayout>(R.id.year_select_filter)
-//        val list_of_tech_stach=listOfTotalTechStackList
         for(i in yearL.indices){
             val oneYear=layoutInflater.inflate(R.layout.one_topic_or_tech_stack,yearSelectOptions,false) as TextView
-//            val techName=techLl.findViewById<TextView>(R.id.tech_name)
-//            val techCount=techLl.findViewById<TextView>(R.id.tech_count)
             oneYear.text=yearL[i]
-            oneYear.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f);
-//            techName.text=listOfTotalTechStackList[i].str
-//            techCount.text=listOfTotalTechStackList[i].num.toString()
+            oneYear.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
             oneYear.setOnClickListener{view ->
-                if(listOfSelectedYears.contains(view)){
-                    listOfSelectedYears.remove(view)
-                    view.setBackgroundResource(R.drawable.solid_light_blue_curved_border)
-
-//                    if(listOfSelectedTechStack.contains(tv)){
-//                        (tv.parent as LinearLayout).setBackgroundResource(R.drawable.solid_light_blue_curved_border)
-//                        listOfSelectedTechStack.remove(tv)
-//                        lastSelectedTech=listOfSelectedTechStack[0]
-//                    }
-//                    else{
-//                        (lastSelectedTech!!.parent as LinearLayout).setBackgroundResource(R.drawable.solid_light_blue_curved_border)
-//                        listOfSelectedTechStack.remove(lastSelectedTech)
-//                        lastSelectedTech=listOfSelectedTechStack[0]
-//                        (tv.parent as LinearLayout).setBackgroundResource(R.drawable.solid_blue_curved_border)
-//                        listOfSelectedTechStack.add(tv)
-//                    }
-                }
-//                else if(listOfSelectedTechStack.size==0){
-//                    lastSelectedTech=tv
-//                    listOfSelectedTechStack.add(tv)
-//                    (tv.parent as LinearLayout).setBackgroundResource(R.drawable.solid_blue_curved_border)
-//                }
-                else{
-                    listOfSelectedYears.add(view as TextView)
+                val pos=(view as TextView).text.toString().toInt()-2016
+                if(isSelected[pos]==0){
+                    selYearCount++
+                    isSelected[pos]=1
                     view.setBackgroundResource(R.drawable.solid_blue_curved_border)
-//                    if(listOfSelectedTechStack.contains(tv)){
-//                        listOfSelectedTechStack.remove(tv)
-//                        (tv.parent as LinearLayout).setBackgroundResource(R.drawable.solid_light_blue_curved_border)
-//                        lastSelectedTech=null
-//                    }
-//                    else{
-//                        listOfSelectedTechStack.add(tv)
-//                        (tv.parent as LinearLayout).setBackgroundResource(R.drawable.solid_blue_curved_border)
-//                    }
                 }
-//                val tCShower=filterDialog.findViewById<LinearLayout>(R.id.added_tech_stack_shower)
-//                while(tCShower.childCount!=0){
-//                    tCShower.removeViewAt(0)
-//                }
-//                for(j in listOfSelectedTechStack.indices){
-//                    val tv=layoutInflater.inflate(R.layout.one_topic_or_tech_stack,tCShower,false) as TextView
-//                    tv.setBackgroundResource(R.drawable.solid_blue_curved_border)
-//                    tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f);
-//                    tv.text=listOfSelectedTechStack[j].text
-//                    tCShower.addView(tv)
-//                }
+                else{
+                    selYearCount--
+                    isSelected[pos]=0
+                    view.setBackgroundResource(R.drawable.solid_light_blue_curved_border)
+                }
                 filterOrgNames(binding.editTextTextPersonName.text)
             }
             yearSelectOptions.addView(oneYear)
@@ -531,10 +474,19 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         })
     }
 
+    var times=0
+    fun closeProgressDialog(){
+        times++
+        if(times==2){
+            progressDialog.dismiss()
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         filterDialog.dismiss()
     }
+
 }
 
 class StringAndInt(var str:String,var num:Int)
