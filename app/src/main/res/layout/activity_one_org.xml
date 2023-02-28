@@ -311,7 +311,6 @@
 
             </TableLayout>
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -366,8 +365,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -393,9 +390,9 @@
                         android:id="@+id/no_complete_projects"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
-                        android:text="No complete projects"
+                        android:text="No complete projects or yet to complete"
                         android:gravity="center"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:fontFamily="@font/spartan_medium"/>
 
                     <LinearLayout
@@ -403,6 +400,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:orientation="vertical">
 
                         <TextView
@@ -422,16 +420,6 @@
                             android:textSize="14sp"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"/>
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/no_tags_description"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:fontFamily="@font/spartan_medium"-->
-<!--                            android:text="@string/test_description"-->
-<!--                            android:textSize="14sp"-->
-<!--                            android:layout_marginTop="5dp"-->
-<!--                            android:layout_marginBottom="5dp"/>-->
 
                         <TextView
                             android:id="@+id/project_student"

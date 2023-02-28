@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.indices
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     lateinit var filterDialog : Dialog
     var lastSelectedTech : TextView?=null
     val listOfSelectedTechStack=ArrayList<TextView>()
-//    val listOfSelectedYears=ArrayList<TextView>()
+    var onlySelectedYears=0;
     val isSelected = arrayOf(0,0,0,0,0,0,0,0)
     var selYearCount=0
 
@@ -154,7 +155,6 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             var addable=true
             if(selYearCount>0){
                 for(j in isSelected.indices){
-
                     if(isSelected[j]==1){
                         if(j==7){
                             addable=addable && orgsIn2023.contains(list_of_org_actual[i].name.toString())
@@ -163,7 +163,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
                             addable=addable && list_of_org_actual[i].years!!.yearsParticipateIn.contains((2016+j).toString())
                         }
                     }
-                    else{
+                    else if(onlySelectedYears==1){
                         if(j==7){
                             addable=addable && !orgsIn2023.contains(list_of_org_actual[i].name.toString())
                         }
@@ -245,6 +245,14 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         val window: Window = filterDialog.window!!
         window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
+        val switch=filterDialog.findViewById<SwitchCompat>(R.id.year_select_switch)
+        switch.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener {
+            override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
+                onlySelectedYears = if(p1) 1 else 0
+                filterOrgNames(binding.editTextTextPersonName.text.toString())
+            }
+
+        })
         val yearL = arrayOf("2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023")
         var yearSelectOptions=filterDialog.findViewById<FlexboxLayout>(R.id.year_select_filter)
         for(i in yearL.indices){
@@ -364,7 +372,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
                         totalProjectsMin=p0.toString().toInt()
                     }
                     else{
-                        totalProjectsMax=0
+                        totalProjectsMin=0
                     }
                 }
                 filterOrgNames(binding.editTextTextPersonName.text)
@@ -382,12 +390,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if(p0.toString().length<5){
-                    if(p0.toString().isNotEmpty()){
-                        totalProjectsMax=p0.toString().toInt()
-                    }
-                    else{
-                        totalProjectsMax=500
-                    }
+                    totalProjectsMax = if(p0.toString().isNotEmpty()) p0.toString().toInt() else 500
                 }
                 filterOrgNames(binding.editTextTextPersonName.text)
             }
@@ -397,36 +400,6 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             }
         })
 
-//        val minMinProjects=filterDialog.findViewById<EditText>(R.id.min_min_projects)
-//        minMinProjects.addTextChangedListener(object : TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                // do nothing
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                minProjectsMin=if(p0.toString().isNotEmpty()) p0.toString().toInt() else 0
-//                filterOrgNames(binding.editTextTextPersonName.text)
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//                // do nothing
-//            }
-//        })
-//        val maxMinProjects=filterDialog.findViewById<EditText>(R.id.max_min_projects)
-//        maxMinProjects.addTextChangedListener(object : TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                // do nothing
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                minProjectsMax=if(p0.toString().isNotEmpty()) p0.toString().toInt() else 100
-//                filterOrgNames(binding.editTextTextPersonName.text)
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//                // do nothing
-//            }
-//        })
 
         val minAverageProjects=filterDialog.findViewById<EditText>(R.id.min_average_projects)
         minAverageProjects.addTextChangedListener(object : TextWatcher {
@@ -436,12 +409,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if(p0.toString().length<5){
-                    if(p0.toString().isNotEmpty()){
-                        averageProjectsMin=p0.toString().toInt()
-                    }
-                    else{
-                        averageProjectsMin=0
-                    }
+                    averageProjectsMin = if(p0.toString().isNotEmpty()) p0.toString().toInt() else 0
                 }
                 filterOrgNames(binding.editTextTextPersonName.text)
             }
@@ -458,12 +426,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if(p0.toString().length<5){
-                    if(p0.toString().isNotEmpty()){
-                        averageProjectsMax=p0.toString().toInt()
-                    }
-                    else{
-                        averageProjectsMax=100
-                    }
+                    averageProjectsMax = if(p0.toString().isNotEmpty()) p0.toString().toInt() else 100
                 }
                 filterOrgNames(binding.editTextTextPersonName.text)
             }
@@ -476,8 +439,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
     var times=0
     fun closeProgressDialog(){
-        times++
-        if(times==2){
+        if(++times==2){
             progressDialog.dismiss()
         }
     }
